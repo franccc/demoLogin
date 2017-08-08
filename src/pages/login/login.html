@@ -1,0 +1,36 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="background">
+  <ion-card>
+    <ion-card-header color="light">
+        Login 
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-input type="text"  [(ngModel)]="user.email" placeholder="Usuario" ></ion-input>
+          <!-- <ion-label floating >Cuenta Correo</ion-label> -->
+          <!-- <ion-input type="text" [(ngModel)]="user.email"></ion-input> -->
+        </ion-item> 
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
+          <!-- <ion-label floating >Contraseña</ion-label> -->
+          <!-- <ion-input type="password" [(ngModel)]="user.password"></ion-input> -->
+        </ion-item> 
+        <br /><br />
+        <!-- <a>Olvidaste la contraseña? <b>Ayuda para ingresar</b></a> -->
+        <button ion-button block outline color="primary" (click)="login(user)">Ingresar</button> 
+        <button ion-button block outline color="primary" (click)="register()">Registrar</button>
+        <p>O</p> 
+        <button ion-button block color="facebook">
+          <ion-icon name="logo-facebook"></ion-icon>  Ingresar a facebook
+        </button>  
+      </ion-list> 
+    </ion-card-content>
+  </ion-card>
+  <button class="bottom" ion-button clear full color="light">No tiene usuario? registrese</button>
+</ion-content>
