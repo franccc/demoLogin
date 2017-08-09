@@ -11,6 +11,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Lista de Servicios</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addTreatment()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -18,4 +23,18 @@
 
 <ion-content padding>
 
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Código</ion-label>
+      <ion-input [(ngModel)]="treatment.code"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descripción</ion-label>
+      <ion-input [(ngModel)]="treatment.description"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  
 </ion-content>

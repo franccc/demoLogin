@@ -21,14 +21,14 @@ export class ProfilePage {
   profile = {} as Profile;
 
   constructor(private afAuth: AngularFireAuth,
-              private adDatabase : AngularFireDatabase, 
+              private afDatabase : AngularFireDatabase, 
               public navCtrl: NavController, 
               public navParams: NavParams) {
   }
 
   createProfile(){
     this.afAuth.authState.take(1).subscribe(auth => {
-        this.adDatabase.object(`profile/${auth.uid}`).set(this.profile)
+        this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
           .then(() => this.navCtrl.setRoot('HomePage'))
     })
   }

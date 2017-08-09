@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase } from "angularfire2/database";
+import { Treatment } from "../../models/treatment";
+// import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+
 
 /**
  * Generated class for the ListpagePage page.
@@ -15,11 +19,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListpagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  treatment = {} as Treatment;
+
+  // treatments: FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public afDatabase: AngularFireDatabase) {
+
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListpagePage');
+  addTreatment(){
+    this.afDatabase.object(`treatment/Id`).set(this.treatment);
   }
 
 }
