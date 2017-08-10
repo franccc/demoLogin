@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Perfil</ion-title>
   </ion-navbar>
 
@@ -28,6 +31,15 @@
   <ion-item>
     <ion-label floating>Apellido</ion-label>
     <ion-input [(ngModel)]="profile.lastname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Role</ion-label>
+    <!-- <ion-input [(ngModel)]="profile.lastname"></ion-input> -->
+    <ion-select [(ngModel)]="profile.lastname">
+      <ion-option value="administrador">Administrador</ion-option>
+      <ion-option value="consulta">Consulta</ion-option>
+    </ion-select>
   </ion-item>
 
   <button ion-button clear block (click)="createProfile()">Crear Perfil</button>

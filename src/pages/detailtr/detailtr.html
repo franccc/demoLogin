@@ -1,0 +1,39 @@
+<!--
+  Generated template for the DetailtrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalle del Tratamiento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input type="text" [(ngModel)]="treatment.code"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Titulo</ion-label>
+      <ion-input type="text" [(ngModel)]="treatment.shortname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descripcion</ion-label>
+      <ion-textarea [(ngModel)]="treatment.description"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button block (click)="addTreatment()">Guardar Tratamiento</button>
+    <button *ngIf="id != 0" ion-button block (click)="deleteTreatment()" color="danger">Eliminar Tratamiento</button>
+  </div>
+
+</ion-content>

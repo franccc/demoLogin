@@ -33,4 +33,10 @@ export class ProfilePage {
     })
   }
 
+  ionViewDidLoad() {
+    this.afAuth.authState.take(1).subscribe(auth => {
+        this.afDatabase.object(`profile/${auth.uid}`).update(this.profile)
+          
+    })
+  }
 }
