@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -18,12 +18,12 @@
 
 <ion-content >
   <ion-list>
-  <button ion-item *ngFor="let treatment of treatments" (click)="goToDetail(treatment.id)">
-    {{ treatment.shortname }}
-  </button>  
-</ion-list>
+    <button ion-item *ngFor="let treatment of treatments" (click)="goToDetail(treatment.id)">
+      {{ treatment.shortname }}
+    </button>  
+  </ion-list>
 
-<div padding>
-  <button ion-button block (click)="createTreatment()">Crear Tratamiento</button>
-</div>
+  <div padding>
+    <button ion-button block (click)="createTreatment()">Crear Tratamiento</button>
+  </div>
 </ion-content>

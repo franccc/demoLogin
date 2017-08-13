@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth'
 import { AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
 import { Profile } from "../../models/profile";
+import { ProfilesService } from "../../services/profiles.service";
 
 /**
  * Generated class for the HomePage page.
@@ -24,19 +25,20 @@ export class HomePage {
               private afDatabase: AngularFireDatabase,
               private toast: ToastController,
               public navCtrl: NavController, 
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public profilesService: ProfilesService) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       if (data && data.email && data.uid){
         this.toast.create({
           message: `Bienvenido a APP_NAME, ${data.email}`,
           duration: 3000
         }).present();
-
         this.profileData = this.afDatabase.object(`profile/${data.uid}`)
+        this.profilesService.loginState = true;
       }else{
         this.toast.create({
           message: `No se pudo autenticar el usuario`,

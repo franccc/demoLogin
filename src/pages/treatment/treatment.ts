@@ -19,7 +19,6 @@ export class TreatmentPage {
   treatments = [];
 
   @ViewChild('myNav') nav: NavController
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public treatmentsService: TreatmentsService) {
@@ -28,7 +27,6 @@ export class TreatmentPage {
           .subscribe( tratamientos => {
               this.treatments = tratamientos;
           });
-
   }
 
   public goToDetail(id){

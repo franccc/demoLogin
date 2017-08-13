@@ -1,6 +1,5 @@
 <!--
   Generated template for the ProfilePage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -33,14 +32,8 @@
     <ion-input [(ngModel)]="profile.lastname"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label floating>Role</ion-label>
-    <!-- <ion-input [(ngModel)]="profile.lastname"></ion-input> -->
-    <ion-select [(ngModel)]="profile.lastname">
-      <ion-option value="administrador">Administrador</ion-option>
-      <ion-option value="consulta">Consulta</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <button ion-button clear block (click)="createProfile()">Crear Perfil</button>
+  <div padding>
+    <button *ngIf="uid == 0" ion-button block (click)="createProfile()">Crear Perfil</button>
+    <button *ngIf="uid == 1" ion-button block (click)="createProfile()">Actualizar Perfil</button>
+  </div>
 </ion-content>

@@ -12,7 +12,7 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 import { TreatmentsService } from "../services/treatments.service";
-
+import { ProfilesService } from "../services/profiles.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { TreatmentsService } from "../services/treatments.service";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TreatmentsService
+    TreatmentsService,
+    ProfilesService
     // Sqlstorage, 
     // SQLite
   ]

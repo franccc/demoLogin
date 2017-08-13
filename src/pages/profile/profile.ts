@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabase } from "angularfire2/database";
 import { Profile } from "../../models/profile";
+import { ProfilesService } from "../../services/profiles.service";
 
 /**
  * Generated class for the ProfilePage page.
@@ -19,24 +19,33 @@ import { Profile } from "../../models/profile";
 export class ProfilePage {
 
   profile = {} as Profile;
+  uid = null;
 
   constructor(private afAuth: AngularFireAuth,
-              private afDatabase : AngularFireDatabase, 
               public navCtrl: NavController, 
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public profilesService: ProfilesService) {
+      console.log('variable global: ' + this.profilesService.loginState);
+
+      if (this.profilesService.loginState){
+          console.log('estado de la variable  loginstate: ' + this.profilesService.loginState);
+          this.uid = 1;
+          this.afAuth.authState.take(1).subscribe(auth => {
+                this.profilesService.getProfile(auth.uid).subscribe(profile => {
+                    this.profile = profile;
+                })
+          });
+      }else{
+          this.uid = 0;
+      }
   }
 
   createProfile(){
-    this.afAuth.authState.take(1).subscribe(auth => {
-        this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
-          .then(() => this.navCtrl.setRoot('HomePage'))
-    })
+      this.afAuth.authState.take(1).subscribe(auth => {
+          this.profile.uid = auth.uid;
+          this.profilesService.createProfile(this.profile)
+              .then(() => this.navCtrl.setRoot('HomePage'))
+      })
   }
 
-  ionViewDidLoad() {
-    this.afAuth.authState.take(1).subscribe(auth => {
-        this.afDatabase.object(`profile/${auth.uid}`).update(this.profile)
-          
-    })
-  }
 }

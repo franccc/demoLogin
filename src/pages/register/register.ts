@@ -29,7 +29,11 @@ export class RegisterPage {
   async register(user: User){
     try{
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
+      //this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
       console.log(result);
+      this.navCtrl.pop();
+          
+      
     }
     catch (e){
       console.error(e);

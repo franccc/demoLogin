@@ -24,14 +24,14 @@ export class DetailtrPage {
               public navParams: NavParams,
               public treatmentsService: TreatmentsService) {
 
-    this.id = navParams.get('id');
+      this.id = navParams.get('id');
 
-    if(this.id != 0){
-      treatmentsService.getTreatment(this.id)
-          .subscribe(treatment => {
-              this.treatment = treatment;
-          });
-    }
+      if(this.id != 0){
+        treatmentsService.getTreatment(this.id)
+            .subscribe(treatment => {
+                this.treatment = treatment;
+            });
+      }
   }
 
   ionViewDidLoad() {
