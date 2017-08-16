@@ -34,9 +34,9 @@ export class DetailtrPage {
       }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailtrPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad DetailtrPage');
+  // }
 
   addTreatment(){
     if(this.id != 0){

@@ -31,7 +31,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    // console.log('ionViewDidLoad LoginPage');
   }
 
   async login(user: User){
@@ -41,7 +41,7 @@ export class LoginPage {
       this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
         .then(auth =>  {
             this.profilesService.getProfile(auth.uid).subscribe(profile => {
-                console.log ('valor profile.uid' + profile.uid);
+                // console.log ('valor profile.uid' + profile.uid);
                 if (profile.uid  == auth.uid){
                     this.profilesService.loginState = true;
                     this.navCtrl.setRoot('HomePage');
@@ -58,7 +58,7 @@ export class LoginPage {
         )
     }
     catch(e){
-      console.error(e);
+      // console.error(e);
     }
   }
 

@@ -47,29 +47,30 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  // logoutApp(){ ///<-- call from static button
-  //   let alert = this.alertCtrl.create({
-  //   title: 'Finalizar',
-  //   message: 'Esta seguro de salir?',
-  //   buttons: [
-  //     {
-  //       text: 'Cancelar',
-  //       role: 'cancel',
-  //       handler: () => {
-  //         console.log('Cancel clicked');
-  //       }
-  //     },
-  //     {
-  //       text: 'Salir',
-  //       handler: () => {
-  //         this.platform.exitApp(); // stops the app
-  //         //window.close();
-  //         console.log('Logged out');
-  //       }
-  //     }
-  //   ]
-  // });
-  // alert.present();
-  // }
+  logoutApp(){ ///<-- call from static button
+    let alert = this.alertCtrl.create({
+    title: 'Finalizar',
+    message: 'Esta seguro de salir?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Salir',
+        handler: () => {
+          this.platform.exitApp(); // stops the app
+          this.nav.push('LoginPage');
+          window.close();
+          console.log('Logged out');
+        }
+      }
+    ]
+  });
+  alert.present();
+  }
 }
 

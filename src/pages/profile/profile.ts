@@ -25,10 +25,10 @@ export class ProfilePage {
               public navCtrl: NavController, 
               public navParams: NavParams,
               public profilesService: ProfilesService) {
-      console.log('variable global: ' + this.profilesService.loginState);
+    //   console.log('variable global: ' + this.profilesService.loginState);
 
       if (this.profilesService.loginState){
-          console.log('estado de la variable  loginstate: ' + this.profilesService.loginState);
+        //   console.log('estado de la variable  loginstate: ' + this.profilesService.loginState);
           this.uid = 1;
           this.afAuth.authState.take(1).subscribe(auth => {
                 this.profilesService.getProfile(auth.uid).subscribe(profile => {

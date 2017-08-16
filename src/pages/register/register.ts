@@ -22,21 +22,21 @@ export class RegisterPage {
   constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad RegisterPage');
+  // }
 
   async register(user: User){
     try{
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
+      await this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
       //this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
-      console.log(result);
+      // console.log(result);
       this.navCtrl.pop();
           
       
     }
     catch (e){
-      console.error(e);
+      // console.error(e);
     }
   }
 

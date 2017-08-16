@@ -3,13 +3,13 @@ page-login {
         background-image: url(../assets/lago1.jpg);
     }
 
-     .scroll-content {
-         align-content: center;
-         display: grid;
-        //  flex-direction: column;
-         justify-content: center;
-         text-align: center;
-     }
+      .scroll-content {
+          align-content: center;
+          display: block;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+    }
 
     ion-card.card{
         box-shadow: none;
