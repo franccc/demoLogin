@@ -6,6 +6,6 @@ export interface patients{
     address: string;
     phono: string;
     email: string;
-    socialNumber:
+    socialNumber: number
     
 }
